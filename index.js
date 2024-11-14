@@ -38,6 +38,21 @@ app.post('/player/growid/login/validate', (req, res) => {
     );
 });
 
+app.post("/player/growid/checktoken", (req, res, next) => {
+    const token = req.body.refreshToken;
+    if (!token) return res.sendStatus(401);
+
+    res.send(
+      JSON.stringify({
+        status: "success",
+        message: "Account Validated.",
+        token,
+        url: "",
+        accountType: "growtopia"
+      })
+    );
+  });
+
 app.post('/player/validate/close', function (req, res) {
     res.send('<script>window.close();</script>');
 });
