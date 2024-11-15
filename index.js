@@ -47,6 +47,10 @@ app.post("/player/signup", (req, res, next) => {
     );
 });
 
+app.post('/player/signup/close', function (req, res) {
+    res.send('<script>window.close();</script>');
+});
+
 app.post("/player/growid/checktoken", (req, res, next) => {
     const token = req.body.refreshToken;
     if (!token) return res.sendStatus(401);
