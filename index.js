@@ -38,6 +38,19 @@ app.post('/player/growid/login/validate', (req, res) => {
     );
 });
 
+app.get("/growid/login/validate", (req, res, next) => {
+    const token = req.query.token;
+    res.send(
+      JSON.stringify({
+        status: "success",
+        message: "Account Validated.",
+        token,
+        url: "",
+        accountType: "growtopia"
+      })
+    );
+});
+
 app.post("/player/signup", (req, res, next) => {
     const token = Buffer.from(
             `_token=&growId=&password=`,
