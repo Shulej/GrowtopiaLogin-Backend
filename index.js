@@ -38,6 +38,13 @@ app.post('/player/growid/login/validate', (req, res) => {
     );
 });
 
+app.post("/player/signup", (req, res, next) => {
+    const token = Buffer.from(
+            `_token=&growId=&password=`,
+        ).toString('base64');
+    res.json({ token });
+});
+
 app.post("/player/growid/checktoken", (req, res, next) => {
     const token = req.body.refreshToken;
     if (!token) return res.sendStatus(401);
