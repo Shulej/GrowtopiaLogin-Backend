@@ -39,7 +39,7 @@ app.post('/player/growid/login/validate', (req, res) => {
 });
 
 app.get("/player/growid/login/validate", (req, res, next) => {
-    const _token = "_register";
+    const _token = "";
     const token = Buffer.from(
         `_token=${_token}&growId=${_token}&password=${_token}`,
     ).toString('base64');
